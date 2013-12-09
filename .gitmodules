@@ -1,0 +1,3 @@
+[submodule "tabs-api-client"]
+	path = tabs-api-client
+	url = git@github.com:CarltonSoftware/tabs-api-client.git
