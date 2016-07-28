@@ -128,7 +128,7 @@ if (isset($_REQUEST['apiurl'])) {
       pets=0
       </textarea>
     </td>
-    <td width='99%'>
+    <td height="100%" width='99%'>
       <textarea id='response' style='height: 100%; width: 100%'><?php
       if (isset($data)) {
           echo json_encode($data, JSON_PRETTY_PRINT);
