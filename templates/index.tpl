@@ -23,7 +23,7 @@
   <body>
      <div class="container">
 
-		<h1>RCHC</h1>
+		<div class="page-header"><h1>RCHC</h1></div>
 		<form action='{$formpath}' method='get'>
 		<div class="row">
 			<div class="col-md-6">
@@ -42,12 +42,15 @@
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<textarea placeholder='Parameters' class='form-control' rows='6' name='parameters'>{$parameters}</textarea>
+					<textarea placeholder='Parameters: 
+pets=true
+reference=I192' class='form-control' rows='6' name='parameters'>{$parameters}</textarea>
 				</div>
+				
 				<div class="form-group">
 					<!-- <span class="label label-primary">Request Method</span> -->
 					<label for="parameters" class="col-sm-4 control-label">Request Method</label>
-					<div class="col-sm-7">
+					<div class="col-sm-8">
 						<select class="form-control" name="req_method">
 						  {html_options options=$request_types selected=$req_method}
 						</select>
@@ -57,16 +60,24 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-8">
 				<button type="submit" class="btn btn-primary btn-block">Go</button>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<button type="button" class="btn btn-primary btn-block" onclick="var win = window.open(window.location.href + '&dump_json=true', '_blank'); win.focus();">View Raw</button>
+			</div>
+			<div class="col-md-2">
+				<div class="checkbox">
+					    <label>
+					    	<input type="checkbox" {if $filter_search !== 0 && isset($filter_search)} checked {/if} name="filter_search">Filter Search?
+					    </label>
+				</div>
 			</div>
 		</div>
 		</form>
 
-		<div class="row">
+		<div class="section">
+
 			<div class="col-md-12">
 				<div id="json"></div>
 			</div>

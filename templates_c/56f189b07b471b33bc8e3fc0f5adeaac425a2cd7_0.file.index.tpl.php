@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2016-10-18 09:20:11
+/* Smarty version 3.1.30, created on 2016-10-18 11:58:01
   from "/srv/http/hmacclient/templates/index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5805e94bad6010_80723539',
+  'unifunc' => 'content_58060e49a09a19_55068466',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '56f189b07b471b33bc8e3fc0f5adeaac425a2cd7' => 
     array (
       0 => '/srv/http/hmacclient/templates/index.tpl',
-      1 => 1476782375,
+      1 => 1476791880,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5805e94bad6010_80723539 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58060e49a09a19_55068466 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_html_options')) require_once '/srv/http/hmacclient/vendor/smarty/smarty/libs/plugins/function.html_options.php';
 ?>
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ if (!is_callable('smarty_function_html_options')) require_once '/srv/http/hmaccl
   <body>
      <div class="container">
 
-		<h1>RCHC</h1>
+		<div class="page-header"><h1>RCHC</h1></div>
 		<form action='<?php echo $_smarty_tpl->tpl_vars['formpath']->value;?>
 ' method='get'>
 		<div class="row">
@@ -76,13 +76,16 @@ if (!is_callable('smarty_function_html_options')) require_once '/srv/http/hmaccl
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<textarea placeholder='Parameters' class='form-control' rows='6' name='parameters'><?php echo $_smarty_tpl->tpl_vars['parameters']->value;?>
+					<textarea placeholder='Parameters: 
+pets=true
+reference=I192' class='form-control' rows='6' name='parameters'><?php echo $_smarty_tpl->tpl_vars['parameters']->value;?>
 </textarea>
 				</div>
+				
 				<div class="form-group">
 					<!-- <span class="label label-primary">Request Method</span> -->
 					<label for="parameters" class="col-sm-4 control-label">Request Method</label>
-					<div class="col-sm-7">
+					<div class="col-sm-8">
 						<select class="form-control" name="req_method">
 						  <?php echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['request_types']->value,'selected'=>$_smarty_tpl->tpl_vars['req_method']->value),$_smarty_tpl);?>
 
@@ -93,16 +96,24 @@ if (!is_callable('smarty_function_html_options')) require_once '/srv/http/hmaccl
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-8">
 				<button type="submit" class="btn btn-primary btn-block">Go</button>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<button type="button" class="btn btn-primary btn-block" onclick="var win = window.open(window.location.href + '&dump_json=true', '_blank'); win.focus();">View Raw</button>
+			</div>
+			<div class="col-md-2">
+				<div class="checkbox">
+					    <label>
+					    	<input type="checkbox" <?php if ($_smarty_tpl->tpl_vars['filter_search']->value !== 0 && isset($_smarty_tpl->tpl_vars['filter_search']->value)) {?> checked <?php }?> name="filter_search">Filter Search?
+					    </label>
+				</div>
 			</div>
 		</div>
 		</form>
 
-		<div class="row">
+		<div class="section">
+
 			<div class="col-md-12">
 				<div id="json"></div>
 			</div>
